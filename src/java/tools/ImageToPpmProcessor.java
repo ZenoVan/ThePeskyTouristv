@@ -103,7 +103,7 @@ public class ImageToPpmProcessor {
 			constraints.gridy = 0;
 			panel.add(new JLabel("Source: "), constraints);
 
-			sourceDir = new File(".");
+			sourceDir = new File("src/resources/origin");
 			sourceDirTF = new JTextField();
 			sourceDirTF.setText(sourceDir.getCanonicalPath());
 			constraints.gridx++;
@@ -119,7 +119,7 @@ public class ImageToPpmProcessor {
 			constraints.gridy++;
 			panel.add(new JLabel("Destination: "), constraints);
 
-			destDir = new File(".");
+			destDir = new File("src/resources/ppm");
 			destDirTF = new JTextField();
 			destDirTF.setText(destDir.getCanonicalPath());
 			constraints.gridx++;

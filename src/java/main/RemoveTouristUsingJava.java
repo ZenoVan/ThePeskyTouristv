@@ -4,9 +4,10 @@ import java.util.*;
 import java.io.*;
 
 public class RemoveTouristUsingJava {
+
     public static void main(String[] args) {
         final String FORMAT = "P3";
-
+        /*
         System.out.println();
         for (int i = 0; i < args.length; i++) {
             if (args[i].startsWith("filtered")) {
@@ -16,8 +17,19 @@ public class RemoveTouristUsingJava {
                 return;
             }
         }
+        */
+        File ppmDir = new File("src/resources/ppm");
+        File resDir = new File("src/resources/result");
 
-        int numOfImageFiles = args.length;
+        File[] ppmImages = ppmDir.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                String tmp = name.toLowerCase();
+                return tmp.endsWith("ppm");
+            }
+        });
+
+        int numOfImageFiles = ppmImages.length;
 
         if (numOfImageFiles < 3) {
             System.out.println("\nYou need more images files");
@@ -27,7 +39,7 @@ public class RemoveTouristUsingJava {
         ArrayList<ImagePPM> images = new ArrayList<ImagePPM>();
 
         for (int i = 0; i < numOfImageFiles; i++) {
-            String imageName = args[i];
+            String imageName = ppmImages[i].getName();
 
             ImagePPM pic = new ImagePPM(imageName);
 
@@ -81,10 +93,10 @@ public class RemoveTouristUsingJava {
 
         //##################################################################################
 
-        BufferedWriter writer = null;
+        BufferedWriter writer;
 
         try {
-            writer = new BufferedWriter(new FileWriter(new File("filteredImageUsingJava.ppm")));
+            writer = new BufferedWriter(new FileWriter(new File(resDir + "/result.ppm")));
             writer.write(FORMAT + "\n");
             writer.write(filteredImage.get(0) + " " + filteredImage.get(1) + "\n");
             writer.write(filteredImage.get(2) + "\n");
