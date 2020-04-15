@@ -12,22 +12,22 @@ public class ImagePPM
 	   private int     maxColour;
 
        private int     size;
-	   private String  fileName;
+	   private File  file;
 	
 	   private ArrayList<Integer> ascii;
 
-       public ImagePPM(String fileN)
+       public ImagePPM(File file)
 	   {
-	          fileName = fileN;
+	          this.file = file;
 			  ascii    = new ArrayList<Integer>();
 	   }
 
 	   public void getImageData()
  	   {
-               System.out.println("fileName is "+fileName);
+               System.out.println("fileName is "+file.getName());
 			   try 
 			   {
-					  Scanner sc  =  new Scanner(new File(fileName));
+					  Scanner sc  =  new Scanner(file);
 
 					  format      =  sc.next();
                       

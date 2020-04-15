@@ -39,9 +39,9 @@ public class RemoveTouristUsingJava {
         ArrayList<ImagePPM> images = new ArrayList<ImagePPM>();
 
         for (int i = 0; i < numOfImageFiles; i++) {
-            String imageName = ppmImages[i].getName();
+//            String imageName = ppmImages[i].getName();
 
-            ImagePPM pic = new ImagePPM(imageName);
+            ImagePPM pic = new ImagePPM(ppmImages[i]);
 
             pic.getImageData();
 
