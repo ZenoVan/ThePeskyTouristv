@@ -73,16 +73,16 @@ public class RemoveTouristUsingJava {
 
             // 取中位数
             int medianValue = 0;
-            if (tempArray.size() / 2 == 0) {
+            if (tempArray.size() % 2 == 0) {
                 int first_middle_index = (tempArray.size() / 2);
                 int first_middle_value = tempArray.get(first_middle_index);
 
-                int second_middle_index = first_middle_index + 1;
+                int second_middle_index = first_middle_index - 1;
                 int second_middle_value = tempArray.get(second_middle_index);
 
                 medianValue = (first_middle_value + second_middle_value) / 2;
             } else {
-                int midindex = (tempArray.size() + 1) / 2;
+                int midindex = (tempArray.size() - 1) / 2;
                 medianValue = tempArray.get(midindex);
             }
 
